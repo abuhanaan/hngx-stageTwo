@@ -13,7 +13,7 @@ const firstStage = async (req, res) => {
     ];
     const d = new Date();
     let day = weekdays[d.getDay()];
-    let utc_time = d.toISOString();
+    let utc_time = d.toISOString().split(".")[0] + "Z";
 
     if (slack_name === "adewunmi" && track === "backend") {
       const response = {
