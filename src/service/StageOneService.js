@@ -22,7 +22,7 @@ const firstStage = async (req, res) => {
         utc_time: utc_time,
         track: track,
         github_file_url:
-          "https://github.com/abuhanaan/hngx-stageOne/blob/main/src/service/StageOneService.js",
+          "https://github.com/abuhanaan/hngx-stageOne/blob/main/src/index.js",
         github_repo_url: "https://github.com/abuhanaan/hngx-stageOne",
         status_code: 200,
       };
