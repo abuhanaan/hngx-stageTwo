@@ -8,7 +8,7 @@ const personRouter = require("./route/PersonApi");
 
 const port = process.env.PORT || 7000;
 
-app.use("/", personRouter);
+app.use("", personRouter);
 
 async function startDatabase() {
   try {
