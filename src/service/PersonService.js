@@ -46,7 +46,7 @@ const createPerson = async (req, res) => {
 
 const getPerson = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.params;
     const person = await Person.findOne({ where: { name: name } });
 
     if (person === null) {
@@ -77,7 +77,7 @@ const getPerson = async (req, res) => {
 
 const updatePerson = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.params;
     const person = await Person.findOne({ where: { name: name } });
 
     if (person === null) {
@@ -109,7 +109,7 @@ const updatePerson = async (req, res) => {
 
 const deletePerson = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.params;
     const person = await Person.findOne({ where: { name: name } });
 
     if (person === null) {

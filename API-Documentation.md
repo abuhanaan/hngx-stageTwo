@@ -40,12 +40,10 @@ POST https://hngx-mustopha-backend.cyclic.app/api
 Content-Type: application/json
 
 {
-  {
     "name": "Mustopha Qomorudeen",
     "gender": "male",
     "state": "Osun",
     "age": 20
-  }
 }
 ```
 
