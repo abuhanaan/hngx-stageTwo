@@ -1,5 +1,9 @@
 # STAGE 2 API DOCUMENTATION
 
+## Getting Started
+
+- To set up locally, click [here](README.md)
+
 - Base URL: https://hngx-mustopha-backend.cyclic.app
 
 ---
@@ -62,17 +66,17 @@ Content-Type: application/json
 }
 ```
 
-#### GET `/api`
+#### GET `/api/:name`
 
 - General
 
   - Fetches a person record
-  - Request Arguments: None
+  - Request Arguments: name (name of a person)
 
 - Sample Request:
 
 ```json
-GET https://hngx-mustopha-backend.cyclic.app/api
+GET https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 ```
 
 - Sample Response:
@@ -91,21 +95,20 @@ GET https://hngx-mustopha-backend.cyclic.app/api
 }
 ```
 
-#### PUT `/api`
+#### PUT `/api/:name`
 
 - General
 
   - Updates a person record
-  - Request Arguments: None
+  - Request Arguments: name (name of a person)
 
 - Sample Request:
 
 ```json
-PUT https://hngx-mustopha-backend.cyclic.app/api
+PUT https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 Content-Type: application/json
 
 {
-    "name": "Mustopha Qomorudeen",
     "state": "Lagos",
     "age": 25
 }
@@ -127,22 +130,17 @@ Content-Type: application/json
 }
 ```
 
-#### DELETE `/api`
+#### DELETE `/api/:name`
 
 - General
 
   - Deletes a person record
-  - Request Arguments: None
+  - Request Arguments: name (name of a person)
 
 - Sample Request:
 
 ```json
-DELETE https://hngx-mustopha-backend.cyclic.app/api
-Content-Type: application/json
-
-{
-    "name": "Mustopha Qomorudeen"
-}
+DELETE https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 ```
 
 - Sample Response:
