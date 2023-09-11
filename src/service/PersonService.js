@@ -1,17 +1,13 @@
 const Person = require("../model/person");
 const genUniqueId = require("../utils/generateUniqueId");
+const validateInput = require("../utils/validations/validateStringInput");
 
 const createPerson = async (req, res) => {
   try {
     const { name, gender, state, age } = req.body;
-    const re = new RegExp("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$");
-    const validateName = re.test(name);
-    if (!validateName) {
-      return res.status(400).send({
-        status: false,
-        message: "Name field is not valid",
-      });
-    }
+    validateInput(res, name);
+    validateInput(res, gender);
+    validateInput(res, state);
     const salt = name + gender;
     const uniqueId = genUniqueId(salt);
     const existingPerson = await Person.findOne({ where: { name: name } });
