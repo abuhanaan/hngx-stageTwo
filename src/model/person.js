@@ -15,19 +15,15 @@ const Person = sequelize.define("person", {
   },
   gender: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
   state: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
   age: {
     type: Sequelize.INTEGER,
-    allowNull: false,
   },
   uniqueId: {
     type: Sequelize.STRING,
-    allowNull: false,
     unique: true,
   },
 });

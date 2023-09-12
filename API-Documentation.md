@@ -36,6 +36,8 @@ The API will return these error types when requests fail:
 
   - Creates a new person
   - Request Arguments: None
+  - Required field(s): name
+  - Optional fields: gender, state, age
 
 - Sample Request:
 

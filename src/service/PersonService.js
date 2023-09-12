@@ -6,8 +6,13 @@ const createPerson = async (req, res) => {
   try {
     const { name, gender, state, age } = req.body;
     validateInput(res, name);
-    validateInput(res, gender);
-    validateInput(res, state);
+    if (gender) {
+      validateInput(res, gender);
+    }
+    if (state) {
+      validateInput(res, state);
+    }
+
     const salt = name + gender;
     const uniqueId = genUniqueId(salt);
     const existingPerson = await Person.findOne({ where: { name: name } });
@@ -20,9 +25,9 @@ const createPerson = async (req, res) => {
     } else {
       const newPerson = await Person.create({
         name: name,
-        gender: gender,
-        state: state,
-        age: parseInt(age),
+        gender: gender ? gender : null,
+        state: state ? state : null,
+        age: age ? parseInt(age) : null,
         uniqueId: uniqueId,
       });
       const response = {
@@ -87,6 +92,15 @@ const updatePerson = async (req, res) => {
       };
       return res.status(404).send(response);
     } else {
+      if (req.body.name) {
+        validateInput(res, req.body.name);
+      }
+      if (req.body.gender) {
+        validateInput(req.body.gender);
+      }
+      if (req.body.state) {
+        validateInput(req.body.state);
+      }
       await person.update(req.body);
       const response = {
         status: true,
