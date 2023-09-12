@@ -1,1 +1,0 @@
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/23502627-e34a8dbc-da12-4523-a4be-c6b6da43f933?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D23502627-e34a8dbc-da12-4523-a4be-c6b6da43f933%26entityType%3Dcollection%26workspaceId%3De172d9df-f87c-4464-aabd-e99460e143cd#?env%5BPublic%5D=W10=)

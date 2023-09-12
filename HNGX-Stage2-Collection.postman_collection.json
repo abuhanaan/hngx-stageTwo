@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "3c24044c-8e1a-426a-b112-f09e3c9235b6",
+		"name": "HNGX-Stage2 Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23502627",
+		"_collection_link": "https://www.postman.com/blue-shadow-625762/workspace/mustopha/collection/23502627-3c24044c-8e1a-426a-b112-f09e3c9235b6?action=share&source=collection_link&creator=23502627"
+	},
+	"item": [
+		{
+			"name": "Create Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response status code is 201', function () {",
+							"    pm.response.to.have.status(201);",
+							"})",
+							"",
+							"pm.test('Response has the required fields', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data.id).to.exist.and.to.be.a('string');",
+							"    pm.expect(responseData.data.name).to.exist.and.to.be.a('string');",
+							"})",
+							"",
+							"pm.test('Id is a non-empty string', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.data.id).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Value should not be empty');",
+							"})",
+							"",
+							"pm.test('Name is a non-empty string', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data.name).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Name should not be empty');",
+							"})",
+							"",
+							"pm.test('Validate that status is boolean and message field is available', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.status).to.exist.and.to.be.a('boolean');",
+							"    pm.expect(responseData.message).to.exist.and.to.be.a('string');",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Mustopha Qomorudeen\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hngx-mustopha-backend.cyclic.app/api",
+					"protocol": "https",
+					"host": [
+						"hngx-mustopha-backend",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test('Response has the required fields', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data.id).to.exist.and.to.be.a('string');",
+							"    pm.expect(responseData.data.name).to.exist.and.to.be.a('string');",
+							"})",
+							"",
+							"pm.test('Validate that status is boolean and message field is available', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.status).to.exist.and.to.be.a('boolean');",
+							"    pm.expect(responseData.message).to.exist.and.to.be.a('string');",
+							"})",
+							"",
+							"pm.test('Name is a non-empty string', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data.name).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Name should not be empty');",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen",
+					"protocol": "https",
+					"host": [
+						"hngx-mustopha-backend",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"Mustopha%20Qomorudeen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response status code is 201', function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"})",
+							"",
+							"pm.test('Response has the required fields', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data.id).to.exist.and.to.be.a('string');",
+							"    pm.expect(responseData.data.name).to.exist.and.to.be.a('string');",
+							"})",
+							"",
+							"pm.test('Id is a non-empty string', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.data.id).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Value should not be empty');",
+							"})",
+							"",
+							"pm.test('Name is a non-empty string', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.data.name).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Name should not be empty');",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gender\": \"female\",\n    \"state\": \"Lagos\",\n    \"age\": 30\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen",
+					"protocol": "https",
+					"host": [
+						"hngx-mustopha-backend",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"Mustopha%20Qomorudeen"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Person",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test('Response has the required fields - status and message', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.status).to.exist;",
+							"    pm.expect(responseData.message).to.exist;",
+							"})",
+							"",
+							"pm.test('Status should be a boolean value', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.status).to.be.a('boolean');",
+							"})",
+							"",
+							"pm.test('Message is a string', function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.message).to.be.a('string');",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen",
+					"protocol": "https",
+					"host": [
+						"hngx-mustopha-backend",
+						"cyclic",
+						"app"
+					],
+					"path": [
+						"api",
+						"Mustopha%20Qomorudeen"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
