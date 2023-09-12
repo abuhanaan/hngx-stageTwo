@@ -31,15 +31,11 @@ const createPerson = async (req, res) => {
         uniqueId: uniqueId,
       });
       const response = {
-        status: true,
-        message: "Person created successfully",
-        data: {
-          id: newPerson.uniqueId,
-          name: newPerson.name,
-          gender: newPerson.gender,
-          state: newPerson.state,
-          age: newPerson.age,
-        },
+        id: newPerson.uniqueId,
+        name: newPerson.name,
+        gender: newPerson.gender,
+        state: newPerson.state,
+        age: newPerson.age,
       };
 
       return res.status(201).send(response);
@@ -63,15 +59,11 @@ const getPerson = async (req, res) => {
       return res.status(404).send(response);
     } else {
       const response = {
-        status: true,
-        message: "Record Fetched Successfully",
-        data: {
-          id: person.uniqueId,
-          name: person.name,
-          gender: person.gender,
-          state: person.state,
-          age: person.age,
-        },
+        id: person.uniqueId,
+        name: person.name,
+        gender: person.gender,
+        state: person.state,
+        age: person.age,
       };
       return res.status(200).send(response);
     }
@@ -104,15 +96,11 @@ const updatePerson = async (req, res) => {
       }
       await person.update(req.body);
       const response = {
-        status: true,
-        message: "Record updated successfully",
-        data: {
-          id: person.uniqueId,
-          name: person.name,
-          gender: person.gender,
-          state: person.state,
-          age: person.age,
-        },
+        id: person.uniqueId,
+        name: person.name,
+        gender: person.gender,
+        state: person.state,
+        age: person.age,
       };
       return res.status(201).send(response);
     }
@@ -136,7 +124,6 @@ const deletePerson = async (req, res) => {
     } else {
       await person.destroy();
       const response = {
-        status: true,
         message: "Record deleted successfully!",
       };
 

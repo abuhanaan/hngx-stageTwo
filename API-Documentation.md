@@ -57,14 +57,11 @@ Content-Type: application/json
 
 ```json
 {
-  "status": true,
-  "data": {
-    "id": "88f3095f70bc00fdeab60de26cdcf5ea",
-    "name": "Mustopha Qomorudeen",
-    "gender": "male",
-    "state": "Osun",
-    "age": 20
-  }
+  "id": "88f3095f70bc00fdeab60de26cdcf5ea",
+  "name": "Mustopha Qomorudeen",
+  "gender": "male",
+  "state": "Osun",
+  "age": 20
 }
 ```
 
@@ -85,15 +82,11 @@ GET https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 
 ```json
 {
-  "status": true,
-  "message": "Record Fetched Successfully",
-  "data": {
-    "id": "88f3095f70bc00fdeab60de26cdcf5ea",
-    "name": "Mustopha Qomorudeen",
-    "gender": "male",
-    "state": "Osun",
-    "age": 20
-  }
+  "id": "88f3095f70bc00fdeab60de26cdcf5ea",
+  "name": "Mustopha Qomorudeen",
+  "gender": "male",
+  "state": "Osun",
+  "age": 20
 }
 ```
 
@@ -120,15 +113,11 @@ Content-Type: application/json
 
 ```json
 {
-  "status": true,
-  "message": "Record updated successfully",
-  "data": {
-    "id": "88f3095f70bc00fdeab60de26cdcf5ea",
-    "name": "Mustopha Qomorudeen",
-    "gender": "male",
-    "state": "Lagos",
-    "age": 25
-  }
+  "id": "88f3095f70bc00fdeab60de26cdcf5ea",
+  "name": "Mustopha Qomorudeen",
+  "gender": "male",
+  "state": "Lagos",
+  "age": 25
 }
 ```
 
@@ -149,7 +138,6 @@ DELETE https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 
 ```json
 {
-  "status": true,
   "message": "Record deleted successfully!"
 }
 ```
