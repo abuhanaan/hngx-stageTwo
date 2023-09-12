@@ -32,6 +32,7 @@ const createPerson = async (req, res) => {
       });
       const response = {
         status: true,
+        message: "Person created successfully",
         data: {
           id: newPerson.uniqueId,
           name: newPerson.name,
