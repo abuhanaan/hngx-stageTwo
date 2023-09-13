@@ -77,6 +77,7 @@ const updatePerson = async (req, res) => {
   try {
     const { id } = req.params;
     const person = await Person.findOne({ where: { uniqueId: id } });
+    const { name, gender, state } = req.body;
 
     if (person === null) {
       const response = {
@@ -85,36 +86,35 @@ const updatePerson = async (req, res) => {
       };
       return res.status(404).send(response);
     } else {
-      if (req.body.name) {
-        validateInput(res, req.body.name);
-        const existingName = await Person.findOne;
+      if (name) {
+        validateInput(res, name);
+        const existingName = await Person.findOne({
+          where: { name: name },
+        });
+        if (existingName) {
+          const response = {
+            status: false,
+            message: `Name ${req.body.name} already exist, please choose a different name`,
+          };
+          return res.status(409).send(response);
+        }
       }
-      if (req.body.gender) {
-        validateInput(req.body.gender);
+      if (gender) {
+        validateInput(res, gender);
       }
-      if (req.body.state) {
-        validateInput(req.body.state);
+      if (state) {
+        validateInput(res, state);
       }
-      const existingPerson = await Person.findOne({
-        where: { name: req.body.name },
-      });
-      if (!existingPerson || person.name === existingPerson.name) {
-        await person.update(req.body);
-        const response = {
-          id: person.uniqueId,
-          name: person.name,
-          gender: person.gender,
-          state: person.state,
-          age: person.age,
-        };
-        return res.status(201).send(response);
-      } else {
-        const response = {
-          status: false,
-          message: `Name ${req.body.name} already exist, please choose a different name`,
-        };
-        return res.status(409).send(response);
-      }
+
+      await person.update(req.body);
+      const response = {
+        id: person.uniqueId,
+        name: person.name,
+        gender: person.gender,
+        state: person.state,
+        age: person.age,
+      };
+      return res.status(201).send(response);
     }
   } catch (error) {
     console.log(error);
