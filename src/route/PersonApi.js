@@ -17,8 +17,8 @@ router.post(
   validateFields(personCreationSchema),
   createPersonController
 );
-router.get("/api/:name", getPersonController);
-router.put("/api/:name", updatePersonController);
-router.delete("/api/:name", deletePersonController);
+router.get("/api/:id", getPersonController);
+router.put("/api/:id", updatePersonController);
+router.delete("/api/:id", deletePersonController);
 
 module.exports = router;

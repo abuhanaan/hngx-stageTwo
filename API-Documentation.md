@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 ```
 
-#### GET `/api/:name`
+#### GET `/api/:id`
 
 - General
 
@@ -75,7 +75,7 @@ Content-Type: application/json
 - Sample Request:
 
 ```json
-GET https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
+GET https://hngx-mustopha-backend.cyclic.app/api/88f3095f70bc00fdeab60de26cdcf5ea
 ```
 
 - Sample Response:
@@ -90,7 +90,7 @@ GET https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 }
 ```
 
-#### PUT `/api/:name`
+#### PUT `/api/:id`
 
 - General
 
@@ -100,7 +100,7 @@ GET https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
 - Sample Request:
 
 ```json
-PUT https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
+PUT https://hngx-mustopha-backend.cyclic.app/api/88f3095f70bc00fdeab60de26cdcf5ea
 Content-Type: application/json
 
 {
@@ -121,7 +121,7 @@ Content-Type: application/json
 }
 ```
 
-#### DELETE `/api/:name`
+#### DELETE `/api/:id`
 
 - General
 
@@ -131,7 +131,7 @@ Content-Type: application/json
 - Sample Request:
 
 ```json
-DELETE https://hngx-mustopha-backend.cyclic.app/api/Mustopha%20Qomorudeen
+DELETE https://hngx-mustopha-backend.cyclic.app/api/88f3095f70bc00fdeab60de26cdcf5ea
 ```
 
 - Sample Response:

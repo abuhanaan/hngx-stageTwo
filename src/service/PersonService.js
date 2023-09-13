@@ -48,13 +48,13 @@ const createPerson = async (req, res) => {
 
 const getPerson = async (req, res) => {
   try {
-    const { name } = req.params;
-    const person = await Person.findOne({ where: { name: name } });
+    const { id } = req.params;
+    const person = await Person.findOne({ where: { uniqueId: id } });
 
     if (person === null) {
       const response = {
         status: false,
-        message: `User with name ${name} does not exist`,
+        message: `User with id ${id} does not exist`,
       };
       return res.status(404).send(response);
     } else {
@@ -75,18 +75,19 @@ const getPerson = async (req, res) => {
 
 const updatePerson = async (req, res) => {
   try {
-    const { name } = req.params;
-    const person = await Person.findOne({ where: { name: name } });
+    const { id } = req.params;
+    const person = await Person.findOne({ where: { uniqueId: id } });
 
     if (person === null) {
       const response = {
         status: false,
-        message: `User with name ${name} does not exist`,
+        message: `User with id ${id} does not exist`,
       };
       return res.status(404).send(response);
     } else {
       if (req.body.name) {
         validateInput(res, req.body.name);
+        const existingName = await Person.findOne;
       }
       if (req.body.gender) {
         validateInput(req.body.gender);
@@ -94,15 +95,26 @@ const updatePerson = async (req, res) => {
       if (req.body.state) {
         validateInput(req.body.state);
       }
-      await person.update(req.body);
-      const response = {
-        id: person.uniqueId,
-        name: person.name,
-        gender: person.gender,
-        state: person.state,
-        age: person.age,
-      };
-      return res.status(201).send(response);
+      const existingPerson = await Person.findOne({
+        where: { name: req.body.name },
+      });
+      if (!existingPerson || person.name === existingPerson.name) {
+        await person.update(req.body);
+        const response = {
+          id: person.uniqueId,
+          name: person.name,
+          gender: person.gender,
+          state: person.state,
+          age: person.age,
+        };
+        return res.status(201).send(response);
+      } else {
+        const response = {
+          status: false,
+          message: `Name ${req.body.name} already exist, please choose a different name`,
+        };
+        return res.status(409).send(response);
+      }
     }
   } catch (error) {
     console.log(error);
@@ -112,13 +124,13 @@ const updatePerson = async (req, res) => {
 
 const deletePerson = async (req, res) => {
   try {
-    const { name } = req.params;
-    const person = await Person.findOne({ where: { name: name } });
+    const { id } = req.params;
+    const person = await Person.findOne({ where: { uniqueId: id } });
 
     if (person === null) {
       const response = {
         status: false,
-        message: `User with name ${name} does not exist`,
+        message: `User with id ${id} does not exist`,
       };
       return res.status(404).send(response);
     } else {
